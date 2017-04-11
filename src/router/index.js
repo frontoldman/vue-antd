@@ -12,6 +12,10 @@ const routes = [
     path: '/Button',
     component: resolve => require(['../../examples/Button'], resolve)
   },
+  {
+    path: '/Icon',
+    component: resolve => require(['../../examples/Icon'], resolve)
+  },
   { path: '*', redirect: `/Button` }
 ]
 

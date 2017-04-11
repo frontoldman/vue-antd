@@ -5,7 +5,16 @@
 
 <template>
   <div>
-    <ant-btn></ant-btn>
+
+    <ant-button type="primary">Primary</ant-button>
+    <ant-button type="dashed">Dashed</ant-button>
+    <ant-button type="danger">Danger</ant-button>
+    <ant-button>Default</ant-button>
+
+    <hr/>
+
+    <ant-button icon="search">Search</ant-button>
+
   </div>
 </template>
 
