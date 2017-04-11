@@ -4,10 +4,12 @@
 
 
 <template>
-  <button type="button" :class="btnCls()">
+  <button @click="handleClick" :disabled="disabled" type="button" :class="btnCls()">
     <ant-icon v-if="icon" :type="icon"></ant-icon>
+    <ant-icon v-if="loading" type="loading"></ant-icon>
     <span v-if="shape !== 'circle'"><slot></slot></span>
   </button>
+
 </template>
 
 <script type="text/ecmascript-6">
@@ -26,6 +28,17 @@
         validator: function (value) {
           return value === 'circle' || value === ''
         }
+      },
+      disabled: {
+        type: Boolean,
+        default: false
+      },
+      loading: {
+        type: Boolean,
+        default: false
+      },
+      size: {
+        type: String
       }
     },
     data() {
@@ -46,6 +59,13 @@
           ]
         }
 
+        if (this.size) {
+          defaultCls = [
+            ...defaultCls,
+            `ant-btn-${this.size}`
+          ]
+        }
+
         if (this.shape === 'circle') {
           defaultCls = [
             ...defaultCls,
@@ -55,6 +75,10 @@
         }
 
         return defaultCls
+      },
+      // Vue disabled元素自动禁止点击事件
+      handleClick(event) {
+        this.$emit('click', event)  // event调用的时候需要传入$event, 否则注入不了
       }
     },
     components: {}

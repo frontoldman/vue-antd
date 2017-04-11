@@ -24,7 +24,15 @@
     },
     methods: {
       iconCls() {
-        return ['anticon', `anticon-${this.type}`]
+        var cls = []
+        if (this.type === 'loading') {
+          cls = ['anticon-spin']
+        }
+        return [
+          'anticon',
+          `anticon-${this.type}`,
+          ...cls
+        ]
       }
     },
     components: {}
