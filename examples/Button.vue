@@ -6,14 +6,17 @@
 <template>
   <div>
 
+    <hr style="margin: 10px 0"/>
+
     <ant-button type="primary">Primary</ant-button>
     <ant-button type="dashed">Dashed</ant-button>
     <ant-button type="danger">Danger</ant-button>
     <ant-button>Default</ant-button>
 
-    <hr/>
+    <hr style="margin: 10px 0"/>
 
     <ant-button icon="search">Search</ant-button>
+    <ant-button icon="search" shape="circle">Search</ant-button>
 
   </div>
 </template>

@@ -4,7 +4,10 @@
 
 
 <template>
-  <button type="button" :class="btnCls()"><slot></slot></button>
+  <button type="button" :class="btnCls()">
+    <ant-icon v-if="icon" :type="icon"></ant-icon>
+    <span v-if="shape !== 'circle'"><slot></slot></span>
+  </button>
 </template>
 
 <script type="text/ecmascript-6">
@@ -17,6 +20,12 @@
       },
       icon: {
         type: String
+      },
+      shape: {
+        type: String,
+        validator: function (value) {
+          return value === 'circle' || value === ''
+        }
       }
     },
     data() {
@@ -31,11 +40,20 @@
       btnCls() {
         var defaultCls = ['ant-btn']
         if (this.type) {
-          return [
+          defaultCls = [
             ...defaultCls,
             `ant-btn-${this.type}`
           ]
         }
+
+        if (this.shape === 'circle') {
+          defaultCls = [
+            ...defaultCls,
+            'ant-btn-circle',
+            'ant-btn-icon-only'
+          ]
+        }
+
         return defaultCls
       }
     },
