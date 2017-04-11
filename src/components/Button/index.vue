@@ -4,7 +4,7 @@
 
 
 <template>
-  <button @click="handleClick" :disabled="disabled" type="button" :class="btnCls()">
+  <button @click="handleClick" :disabled="disabled" :type="htmlType" :class="btnCls()">
     <ant-icon v-if="icon" :type="icon"></ant-icon>
     <ant-icon v-if="loading" type="loading"></ant-icon>
     <span v-if="shape !== 'circle'"><slot></slot></span>
@@ -39,6 +39,13 @@
       },
       size: {
         type: String
+      },
+      ghost: {
+        type: Boolean
+      },
+      htmlType: {
+        type: String,
+        default: 'button'
       }
     },
     data() {
@@ -71,6 +78,13 @@
             ...defaultCls,
             'ant-btn-circle',
             'ant-btn-icon-only'
+          ]
+        }
+
+        if (this.ghost) {
+          defaultCls = [
+            ...defaultCls,
+            'ant-btn-background-ghost'
           ]
         }
 

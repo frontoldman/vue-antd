@@ -32,6 +32,16 @@
     <ant-button type="dashed" loading size="sm">Dashed</ant-button>
     <ant-button type="dashed" size="lg">Dashed</ant-button>
 
+    <hr style="margin: 10px 0"/>
+
+    <div style="background: rgb(190, 200, 200); padding: 26px 16px 16px">
+      <ant-button type="dashed" ghost>Dashed</ant-button>
+    </div>
+
+    <hr style="margin: 10px 0"/>
+
+    <ant-button html-type="submit">Dashed</ant-button>
+
   </div>
 </template>
 
