@@ -20,6 +20,14 @@ const routes = [
     path: '/Icon',
     component: resolve => require(['../../examples/Icon'], resolve)
   },
+  {
+    path: '/Grid',
+    component: resolve => require(['../../examples/Grid'], resolve)
+  },
+  {
+    path: '/Affix',
+    component: resolve => require(['../../examples/Affix'], resolve)
+  },
   { path: '*', redirect: `/Button` }
 ]
 
