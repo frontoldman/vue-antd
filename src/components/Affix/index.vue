@@ -44,7 +44,12 @@
     },
     mounted() {
       this.getInitState()
-      window.addEventListener('scroll', this._scroll)
+      window.addEventListener('scroll', this._scroll, false)
+      window.addEventListener('resize', this._scroll, false)
+    },
+    beforeDestroy() {
+      window.removeEventListener('scroll', this._scroll)
+      window.removeEventListener('resize', this._scroll)
     },
     methods: {
       getCls() {
@@ -105,8 +110,7 @@
           }
         } else {
           var _scroll = scrollTop + this.winHeight - this.initState.top - this.initState.height
-          console.log(_scroll)
-          if (_scroll <= distance && _scroll > 0) {
+          if (_scroll >= distance && _scroll > 0) {
             if (this.float) {
               return
             }
