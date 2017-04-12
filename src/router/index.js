@@ -9,6 +9,10 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/Badge',
+    component: resolve => require(['../../examples/Badge'], resolve)
+  },
+  {
     path: '/Button',
     component: resolve => require(['../../examples/Button'], resolve)
   },
