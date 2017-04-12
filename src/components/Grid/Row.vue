@@ -16,6 +16,15 @@
       gutter: {
         type: Number,
         default: 0
+      },
+      type: {
+        type: String
+      },
+      align: {
+        type: String
+      },
+      justify: {
+        type: String
       }
     },
     data() {
@@ -26,6 +35,18 @@
     },
     methods: {
       getCls() {
+        if (this.type === 'flex') {
+          var defaultCls = ['ant-row-flex']
+          if (this.align) {
+            defaultCls.push(`ant-row-flex-${this.align}`)
+          }
+
+          if (this.justify) {
+            defaultCls.push(`ant-row-flex-${this.justify}`)
+          }
+
+          return defaultCls
+        }
         return ['ant-row']
       },
       getStyle() {
