@@ -4,12 +4,12 @@
 
 <template>
   <span v-if="dot" :class="classes" title="count">
-        <slot></slot>
-        <sup :class="dotClasses"></sup>
+        <slot></slot><!--
+      --><sup :class="dotClasses" v-show="badge"></sup>
   </span>
   <span v-else :class="classes">
-      <slot></slot>
-      <sup v-if="count" :class="countClasses" :style="antStyle">{{ finalCount }}</sup>
+      <slot></slot><!--
+      --><sup v-if="badge" :class="countClasses" :style="antStyle">{{ finalCount }}</sup>
   </span>
 </template>
 
@@ -35,7 +35,11 @@
         type: [Number, String],
         default: 100
       },
-      antStyle: Object
+      antStyle: Object,
+      showZero: {
+        type: Boolean,
+        default: false
+      }
     },
     computed: {
       classes() {
@@ -52,47 +56,21 @@
       }
     },
     data() {
-      return {}
+      return {
+        badge: true
+      }
     },
     methods: {},
     mounted() {
+      if (!this.showZero) {
+        if (parseInt(this.count) === 0) {
+          this.badge = false
+        }
+      }
     }
   }
 </script>
 
 <style lang="less" rel="stylesheet/less" scoped>
-  .ant-badge-count {
-    position: absolute;
-    transform: translateX(50%);
-    top: -10px;
-    right: 0;
-    height: 20px;
-    border-radius: 10px;
-    min-width: 20px;
-    background: #f30;
-    border: 1px solid transparent;
-    color: #fff;
-    line-height: 18px;
-    text-align: center;
-    padding: 0 6px;
-    font-size: 12px;
-    white-space: nowrap;
-    transform-origin: -10% center;
-    z-index: 10;
-    box-shadow: 0 0 0 1px #fff;
-  }
 
-  .ant-badge-dot {
-    position: absolute;
-    transform: translateX(-50%);
-    transform-origin: 0 center;
-    top: -4px;
-    right: -8px;
-    height: 8px;
-    width: 8px;
-    border-radius: 100%;
-    background: #f30;
-    z-index: 10;
-    box-shadow: 0 0 0 1px #fff;
-  }
 </style>

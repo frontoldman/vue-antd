@@ -12,6 +12,14 @@
       <ant-badge :count="0">
         <a href="#" class="head-example"/>
       </ant-badge>
+      <div style="margin-right: 40px"></div>
+      <ant-badge :count="0">
+        <a href="#" class="head-example"/>
+      </ant-badge>
+      <div style="margin-right: 40px"></div>
+      <ant-badge :count="0" dot show-zero>
+        <a href="#" class="head-example"/>
+      </ant-badge>
     </div>
     <hr style="margin: 20px 0"/>
 
@@ -31,7 +39,6 @@
       <div style="margin-right: 40px"></div>
       <ant-badge dot><a href="#">Link something</a></ant-badge>
     </div>
-  </div>
   </div>
 </template>
 
