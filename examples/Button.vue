@@ -42,6 +42,12 @@
 
     <ant-button html-type="submit">Dashed</ant-button>
 
+    <hr style="margin: 10px 0"/>
+
+    <ant-button-group>
+      <ant-button>Default</ant-button><ant-button>Default</ant-button>
+    </ant-button-group>
+
   </div>
 </template>
 
